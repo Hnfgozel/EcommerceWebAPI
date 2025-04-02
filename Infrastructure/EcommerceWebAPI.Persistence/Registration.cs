@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EcommerceWebAPI.Persistence.Context;
+using EcommerceWebAPI.Application.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using EcommerceWebAPI.Persistence.Repositories;
 
 namespace EcommerceWebAPI.Persistence
 {
@@ -16,6 +18,10 @@ namespace EcommerceWebAPI.Persistence
         {
             services.AddDbContext<AppDbContext>(opt =>
             opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
+            services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
         }
     }
 }
