@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using EcommerceWebAPI.Persistence.Repositories;
 using EcommerceWebAPI.Application.Interfaces.UnitOfWorks;
 using EcommerceWebAPI.Persistence.UnitOfWorks;
+using EcommerceWebAPI.Domain.Entities;
 
 namespace EcommerceWebAPI.Persistence
 {
@@ -26,6 +27,17 @@ namespace EcommerceWebAPI.Persistence
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+            services.AddIdentityCore<User>(opt =>
+            {
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequiredLength = 2;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireUppercase = false;
+                opt.Password.RequireDigit = false;
+                opt.SignIn.RequireConfirmedEmail = false;
+            })
+                .AddRoles<Role>()
+                .AddEntityFrameworkStores<AppDbContext>();
         }
     }
 }

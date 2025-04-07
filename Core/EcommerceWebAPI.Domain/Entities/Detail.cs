@@ -10,8 +10,9 @@ namespace EcommerceWebAPI.Domain.Entities
 {
     public class Detail : EntityBase
     {
-        public Detail() 
+        public Detail()
         {
+
         }
         public Detail(string title, string description, int categoryId)
         {

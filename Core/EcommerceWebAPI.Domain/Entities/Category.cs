@@ -7,13 +7,13 @@ using EcommerceWebAPI.Domain.Common;
 
 namespace EcommerceWebAPI.Domain.Entities
 {
-    public class Category : EntityBase, IEntityBase
+    public class Category : EntityBase
     {
-        public Category() 
+        public Category()
         {
-        }
 
-        public Category(int parentId,string name, int priority)
+        }
+        public Category(int parentId, string name, int priority)
         {
             ParentId = parentId;
             Name = name;
@@ -23,8 +23,6 @@ namespace EcommerceWebAPI.Domain.Entities
         public string Name { get; set; }
         public int Priority { get; set; }
         public ICollection<Detail> Details { get; set; }
-        public ICollection<Product> Products { get; set; }
-
-
+        public ICollection<ProductCategory> ProductCategories { get; set; }
     }
 }

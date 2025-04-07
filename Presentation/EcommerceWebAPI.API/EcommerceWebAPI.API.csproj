@@ -17,10 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\EcommerceWebAPI.Mapper\EcommerceWebAPI.Mapper.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\EcommerceWebAPI.Infrastructure\EcommerceWebAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\EcommerceWebAPI.Persistence\EcommerceWebAPI.Persistence.csproj" />
   </ItemGroup>
 
